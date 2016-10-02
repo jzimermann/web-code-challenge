@@ -1,3 +1,9 @@
-<section id="welcome-page">
-    <div class="message">{{ "MapsController.Message" | localize }}</div>
+<section>
+    <div>{{ "MapsController.Message" | localize }}</div>
+
+    <ul ng-repeat="route in routes track by $index">
+        <a ng-click="goToRouteDetails($index)">
+            <li>{{ route.type }}</li>
+        </a>
+    </ul>
 </section>

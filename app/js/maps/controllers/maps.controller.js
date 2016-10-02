@@ -3,23 +3,29 @@ define(['../maps.module'],
 
         'use strict';
 
-        function mapsController($scope, $location, HttpStubberService, RoutesRequestService) {
+        function mapsController($scope, $location, HttpStubberService, RoutesRequestService, RouteConfiguratorService) {
 
             function setupStubs() {
                 HttpStubberService.forRouteRequest().respond();
             }
 
-            function getAllRoutes() {
+            function loadRoutes() {
                 RoutesRequestService.routes().then(function(routes) {
-                    console.log(routes);
+                    $scope.routes = routes;
                 });
             }
 
+            $scope.goToRouteDetails = function(indexForRoute) {
+                var route = $scope.routes[indexForRoute];
+                RouteConfiguratorService.setRoute(route);
+                $location.path('/route-details');
+            };
+
             setupStubs();
-            getAllRoutes();
+            loadRoutes();
         }
 
-        mapsController.$inject = ['$scope', '$location', 'HttpStubberService', 'RoutesRequestService'];
+        mapsController.$inject = ['$scope', '$location', 'HttpStubberService', 'RoutesRequestService', 'RouteConfiguratorService'];
 
         module.controller('MapsController', mapsController);
 
