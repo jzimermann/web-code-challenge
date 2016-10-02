@@ -1,4 +1,5 @@
 define({
     'MapsController.Title': 'Maps',
-    'MapsController.Message': 'Hello!'
+
+    'RouteDetailsController.Title': 'Route Details'
 });

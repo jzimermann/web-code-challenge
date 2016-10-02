@@ -9,6 +9,12 @@ define(['angular', 'app'], function(angular, app) {
             titleKey: 'MapsController.Title'
         });
 
+        $routeProvider.when('/route-details', {
+            templateUrl: 'app/js/maps/partials/route-details.html',
+            controller: 'RouteDetailsController',
+            titleKey: 'RouteDetailsController.Title'
+        });
+
         $routeProvider.when('/', {
             redirectTo: '/maps',
             titleKey: ''
