@@ -1,10 +1,14 @@
-define(['maps/controllers/maps.controller'], function(RouteDetailsController) {
+define(['maps/controllers/route-details.controller'], function(RouteDetailsController) {
 
     'use strict';
 
     describe('RouteDetailsController', function() {
 
-        var controller, scope;
+        var controller, scope, routeConfiguratorService;
+
+        var route = {
+            route: 'route 1'
+        };
 
         beforeEach(function() {
 
@@ -14,14 +18,17 @@ define(['maps/controllers/maps.controller'], function(RouteDetailsController) {
             inject(function($injector, $rootScope) {
                 scope = $rootScope;
 
-                controller = new RouteDetailsController(scope);
+                routeConfiguratorService = $injector.get('RouteConfiguratorService');
             });
         });
 
-        describe('', function() {
-            it('', function() {
+        describe('displayRouteDetails', function() {
+            it('should load the details of a route', function() {
+                spyOn(routeConfiguratorService, 'getRoute').andReturn(route);
 
-                expect(true).toBeTruthy();
+                controller = new RouteDetailsController(scope, routeConfiguratorService);
+
+                expect(scope.route).toBe(route);
             });
         });
     });

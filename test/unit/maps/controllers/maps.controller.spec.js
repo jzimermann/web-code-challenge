@@ -10,7 +10,7 @@ define(['maps/controllers/maps.controller'], function(MapsController) {
             routes: [{
                 route: 'route 1'
             }]
-        }
+        };
 
         beforeEach(function() {
 

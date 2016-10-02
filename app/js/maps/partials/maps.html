@@ -1,6 +1,4 @@
 <section>
-    <div>{{ "MapsController.Message" | localize }}</div>
-
     <ul ng-repeat="route in routes track by $index">
         <a ng-click="goToRouteDetails($index)">
             <li>{{ route.type }}</li>
