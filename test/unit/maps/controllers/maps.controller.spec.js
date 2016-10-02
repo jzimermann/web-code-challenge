@@ -4,17 +4,21 @@ define(['maps/controllers/maps.controller'], function (MapsController) {
 
     describe('MapsController', function () {
 
-        var controller, scope, location;
+        var controller, scope, location, httpStubberService, routesRequestService;
 
         beforeEach(function () {
 
             module('components');
+            module('maps');
            
             inject(function ($injector, $rootScope, $location) {
                 scope = $rootScope;
                 location = $location;
+
+                httpStubberService = $injector.get('HttpStubberService');
+                routesRequestService = $injector.get('RoutesRequestService');
                 
-                controller = new MapsController(scope, location);
+                controller = new MapsController(scope, location, httpStubberService, routesRequestService);
             });
         });
 

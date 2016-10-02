@@ -21,7 +21,7 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
             fail = jasmine.createSpy('fail');
         });
 
-        describe('get', function() {
+        describe('routes', function() {
 
             describe('when the response succeeds', function() {
                 it('should return the routes for ally app', function() {
@@ -30,15 +30,15 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
                         route: 'route'
                     };
 
-                    spyOn(http, 'get').andReturn(q.when(data));
+                    spyOn(http, 'post').andReturn(q.when(data));
 
-                    service.get()
+                    service.routes()
                         .then(pass)
                         .catch(fail);
 
                     scope.$apply();
 
-                    expect(http.get).toHaveBeenCalledWith('/routes');
+                    expect(http.post).toHaveBeenCalledWith('/routes');
                     expect(pass).toHaveBeenCalledWith(data);
                     expect(fail).not.toHaveBeenCalled();
                 });
@@ -47,15 +47,15 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
             describe('when the response fails', function() {
                 it('should return no routes', function() {
 
-                    spyOn(http, 'get').andReturn(q.reject());
+                    spyOn(http, 'post').andReturn(q.reject());
 
-                    service.get()
+                    service.routes()
                         .then(fail)
                         .catch(pass);
 
                     scope.$apply();
 
-                    expect(http.get).toHaveBeenCalledWith('/routes');
+                    expect(http.post).toHaveBeenCalledWith('/routes');
                     expect(pass).toHaveBeenCalled();
                     expect(fail).not.toHaveBeenCalled();
                 });

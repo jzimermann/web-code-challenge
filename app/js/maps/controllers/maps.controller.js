@@ -3,16 +3,23 @@ define(['../maps.module'],
 
         'use strict';
 
-        function mapsController($scope, $location) {
+        function mapsController($scope, $location, HttpStubberService, RoutesRequestService) {
 
             function setupStubs() {
-                console.log('Hello!');
+                HttpStubberService.forRouteRequest().respond();
+            }
+
+            function getAllRoutes() {
+                RoutesRequestService.routes().then(function(response) {
+                    console.log(response.data);
+                });
             }
 
             setupStubs();
+            getAllRoutes();
         }
 
-        mapsController.$inject = ['$scope', '$location'];
+        mapsController.$inject = ['$scope', '$location', 'HttpStubberService', 'RoutesRequestService'];
 
         module.controller('MapsController', mapsController);
 

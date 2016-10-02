@@ -3,12 +3,12 @@ define(['../maps.module'], function(module) {
 
     function routesRequestService($http) {
 
-        function get() {
-            return $http.get('/routes');
+        function routes() {
+            return $http.post('/routes');
         }
 
         return {
-            get: get
+            routes: routes
         };
     }
 

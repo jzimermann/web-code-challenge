@@ -10,7 +10,7 @@ define([
 
     app.run(['$httpBackend', function ($httpBackend) {
         $httpBackend.whenGET(new RegExp('.*')).passThrough();
-        $httpBackend.whenPOST(new RegExp('[^/mobilePrint]')).passThrough();
+        $httpBackend.whenPOST(new RegExp('[^/routes]')).passThrough();
     }]);
 
     return app;
