@@ -1,7 +1,10 @@
 <section>
     <ul ng-repeat="route in routes track by $index">
         <a ng-click="goToRouteDetails($index)">
-            <li>{{ route.type }}</li>
+            <li>Type: {{ route.type }}</li>
+            <li>Travel Start: {{ route | TravelStartFilter | date:'HH:mm' }}</li>
+            <li>Travel End: {{route | TravelEndFilter | date:'HH:mm' }}</li>
+            <li>Travel duration: {{route | TravelDurationFilter }} </li>
         </a>
     </ul>
 </section>

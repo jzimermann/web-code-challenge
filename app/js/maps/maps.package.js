@@ -3,7 +3,11 @@ define([
     './controllers/maps.controller',
     './controllers/route-details.controller',
     './services/routes-request.service',
-    './services/route-configurator.service'
+    './services/route-calculator.service',
+    './services/route-configurator.service',
+    './filters/travel-start.filter',
+    './filters/travel-end.filter',
+    './filters/travel-duration.filter'
 ], function(module) {
     'use strict';
     return module.name;
