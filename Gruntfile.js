@@ -152,8 +152,32 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'node_modules',
-                        dest: '<%= ally.dist %>/ally/app/js/lib',
+                        cwd: 'node_modules/angular',
+                        dest: '<%= ally.dist %>/ally/app/js/lib/angular',
+                        src: '{,**/}*.*'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/angular-mocks',
+                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-mocks',
+                        src: '{,**/}*.*'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/angular-resource',
+                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-resource',
+                        src: '{,**/}*.*'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/angular-route',
+                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-route',
+                        src: '{,**/}*.*'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'node_modules/requirejs',
+                        dest: '<%= ally.dist %>/ally/app/js/lib/requirejs',
                         src: '{,**/}*.*'
                     },
                     {
