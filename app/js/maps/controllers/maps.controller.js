@@ -10,8 +10,8 @@ define(['../maps.module'],
             }
 
             function getAllRoutes() {
-                RoutesRequestService.routes().then(function(response) {
-                    console.log(response.data);
+                RoutesRequestService.routes().then(function(routes) {
+                    console.log(routes);
                 });
             }
 

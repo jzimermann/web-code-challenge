@@ -1,10 +1,26 @@
 define(['../maps.module'], function(module) {
     'use strict';
 
-    function routesRequestService($http) {
+    function routesRequestService($http, $q) {
+
+        var requestPromise;
+
+        function handleSuccess(response) {
+            requestPromise.resolve(response.data.routes);
+        }
+
+        function handleFailure() {
+            requestPromise.reject();
+        }
 
         function routes() {
-            return $http.post('/routes');
+            requestPromise = $q.defer();
+
+            $http.post('/routes')
+                .then(handleSuccess)
+                .catch(handleFailure);
+
+            return requestPromise.promise;
         }
 
         return {
@@ -12,7 +28,7 @@ define(['../maps.module'], function(module) {
         };
     }
 
-    routesRequestService.$inject = ['$http'];
+    routesRequestService.$inject = ['$http', '$q'];
 
     module.service('RoutesRequestService', routesRequestService);
 

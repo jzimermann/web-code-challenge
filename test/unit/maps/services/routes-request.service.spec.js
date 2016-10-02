@@ -13,7 +13,7 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
                 http = $http;
                 q = $q;
 
-                service = new RoutesRequestService(http);
+                service = new RoutesRequestService(http, q);
             });
 
 
@@ -26,11 +26,13 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
             describe('when the response succeeds', function() {
                 it('should return the routes for ally app', function() {
 
-                    var data = {
-                        route: 'route'
+                    var response = {
+                        data: {
+                            routes: 'routes'
+                        }
                     };
 
-                    spyOn(http, 'post').andReturn(q.when(data));
+                    spyOn(http, 'post').andReturn(q.when(response));
 
                     service.routes()
                         .then(pass)
@@ -39,7 +41,7 @@ define(['maps/services/routes-request.service'], function(RoutesRequestService) 
                     scope.$apply();
 
                     expect(http.post).toHaveBeenCalledWith('/routes');
-                    expect(pass).toHaveBeenCalledWith(data);
+                    expect(pass).toHaveBeenCalledWith('routes');
                     expect(fail).not.toHaveBeenCalled();
                 });
             });
