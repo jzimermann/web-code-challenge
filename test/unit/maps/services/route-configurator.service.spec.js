@@ -2,7 +2,7 @@ define(['maps/services/route-configurator.service'], function(RouteConfiguratorS
 
     'use strict';
 
-    ddescribe('RouteConfiguratorService', function() {
+    describe('RouteConfiguratorService', function() {
 
         var service;
 
