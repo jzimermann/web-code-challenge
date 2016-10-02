@@ -13,13 +13,6 @@ define(['../components.module'], function(module) {
                         return body.html === content;
                     }).respond(function() {
                         var response = {};
-
-                        if (httpStatus === 200) {
-                            
-                        } else {
-            
-                        }
-
                         return [httpStatus, response, {}];
                     });
                 }
