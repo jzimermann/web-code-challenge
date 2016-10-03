@@ -7,7 +7,8 @@ define([
     './services/route-configurator.service',
     './filters/travel-start.filter',
     './filters/travel-end.filter',
-    './filters/travel-duration.filter'
+    './filters/travel-duration.filter',
+    './filters/travel-type.filter'
 ], function(module) {
     'use strict';
     return module.name;

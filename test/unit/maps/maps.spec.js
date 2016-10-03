@@ -6,7 +6,8 @@ define([
     '/base/test/unit/maps/services/route-calculator.service.spec.js',
     '/base/test/unit/maps/filters/travel-duration.filter.spec.js',
     '/base/test/unit/maps/filters/travel-end.filter.spec.js',
-    '/base/test/unit/maps/filters/travel-start.filter.spec.js'
+    '/base/test/unit/maps/filters/travel-start.filter.spec.js',
+    '/base/test/unit/maps/filters/travel-type.filter.spec.js'
 ], function () {
     'use strict';
 });
