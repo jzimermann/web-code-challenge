@@ -1,55 +1,52 @@
-.route--list {
+.route-list {
     padding: 20px;
 }
 
-.route--list-card {
+.route-list__card {
     background-color: white;
     margin-bottom: 30px;
     height: 180px;
-}
-
-.route--list-elements {
     padding: 20px;
 }
 
-.route--list-type {
+.route-list__card-type {
     text-transform: capitalize;
     font-weight: bold;
     color: #E0E0E0;
 }
 
-.route--list-duration {
+.route-list__card-duration {
     color: #A8A8A8;
     font-size: 20px;
 }
 
-.route--list-start-end {
+.route-list__card--start-end {
     text-align: right;
     color: #696969;
 }
 
-.route--list-icon {
+.route-list__card--icon {
     height: 128px;
     width: 128px;
     background-repeat: no-repeat;
 }
 
-.route--list-icon__taxi {
+.route-list__card--icon-taxi {
     
 }
 
-.route--list-icon__public_transportation {
+.route-list__card--icon-public-transportation {
     background-image: url('../css/public_transportation.png');
 }
 
-.route--list-icon__car_sharing {
+.route-list__card--icon-car-sharing {
     
 }
 
-.route--list-icon__private_bike {
+.route-list__card--icon-private-bike {
     
 }
 
-.route--list-icon__bike_sharing {
+.route-list__card--icon-bike-sharing {
     
 }
