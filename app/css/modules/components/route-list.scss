@@ -12,7 +12,7 @@
 .route-list__card-type {
     text-transform: capitalize;
     font-weight: bold;
-    color: #E0E0E0;
+    color: #808080;
 }
 
 .route-list__card-duration {
@@ -29,10 +29,19 @@
     height: 128px;
     width: 128px;
     background-repeat: no-repeat;
+    margin-left: 15px;
+}
+
+.route-list__card--more-information {
+    font-size: 15px;
+    text-align: right;
+    margin-left: -15px;
+    color: #4682B4;
+    text-decoration: underline;
 }
 
 .route-list__card--icon-taxi {
-    
+    background-image: url('../css/taxi.png');
 }
 
 .route-list__card--icon-public-transportation {
@@ -40,13 +49,13 @@
 }
 
 .route-list__card--icon-car-sharing {
-    
+    background-image: url('../css/car_sharing.png');
 }
 
 .route-list__card--icon-private-bike {
-    
+    background-image: url('../css/private_bike.png');
 }
 
 .route-list__card--icon-bike-sharing {
-    
+    background-image: url('../css/bike_sharing.png');
 }
