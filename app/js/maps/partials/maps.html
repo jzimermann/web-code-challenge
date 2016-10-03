@@ -1,10 +1,18 @@
-<section>
-    <ul ng-repeat="route in routes track by $index">
-        <a ng-click="goToRouteDetails($index)">
-            <li>Type: {{ route.type | TravelTypeFilter}}</li>
-            <li>Travel Start: {{ route | TravelStartFilter | date:'HH:mm' }}</li>
-            <li>Travel End: {{route | TravelEndFilter | date:'HH:mm' }}</li>
-            <li>Travel duration: {{route | TravelDurationFilter }} </li>
-        </a>
-    </ul>
-</section>
+<div class="title-bar"></div>
+
+<div class="route--list">
+    <div ng-repeat="route in routes track by $index">
+        <div class="route--list-card route--list-elements">
+            <div class="row">
+                <div class="col-sm-9 route--list-type">{{ route.type | TravelTypeFilter}}</div>
+                <div class="col-sm-3 route--list-start-end">{{ route | TravelStartFilter | date:'HH:mm' }} - {{route | TravelEndFilter | date:'HH:mm' }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 route--list-duration">{{route | TravelDurationFilter }}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 route--list-icon route--list-icon__public_transportation"></div>
+            </div>
+        <div>
+    </div>
+</div>

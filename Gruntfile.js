@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                 files: ['app/js/**/partials/{,*/}*.html']
             },
             css: {
-                files: '<%= ally.app %>/css/{,*/}*.scss',
+                files: ['<%= ally.app %>/css/{,*/}*.scss', '<%= ally.app %>/css/modules/components/{,*/}*.scss'],
                 tasks: ['gulp:sass'],
                 options: {
                     livereload: true
@@ -181,6 +181,12 @@ module.exports = function (grunt) {
                         src: '{,**/}*.*'
                     },
                     {
+                        expand: true,
+                        cwd: 'node_modules/flexboxgrid',
+                        dest: '<%= ally.dist %>/ally/app/css/flexboxgrid',
+                        src: '{,**/}*.*'
+                    },
+                    {
                         cwd: 'WebContent',
                         src: ["*.html", "*.js"],
                         dest: '<%= ally.dist %>/ally',
@@ -190,6 +196,12 @@ module.exports = function (grunt) {
                         cwd: '<%= ally.app %>/js',
                         dest: '<%= ally.dist %>/ally/app/js',
                         src: '{,**/}*.js',
+                        expand: true
+                    },
+                    {
+                        cwd: '<%= ally.app %>/css/icons',
+                        dest: '<%= ally.dist %>/ally/app/css',
+                        src: '{,**/}*.png',
                         expand: true
                     }
                 ]

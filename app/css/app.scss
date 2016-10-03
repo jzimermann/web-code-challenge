@@ -1,4 +1,8 @@
 @charset "UTF-8";
 
-@import "modules/welcome";
-@import "modules/good-bye";
+@import "modules/base";
+
+@import "modules/components/title-bar.scss";
+@import "modules/components/list.scss";
+
+@import "flexboxgrid/css/flexboxgrid.min.css";

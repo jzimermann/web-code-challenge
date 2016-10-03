@@ -1,0 +1,55 @@
+.route--list {
+    padding: 20px;
+}
+
+.route--list-card {
+    background-color: white;
+    margin-bottom: 30px;
+    height: 180px;
+}
+
+.route--list-elements {
+    padding: 20px;
+}
+
+.route--list-type {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #E0E0E0;
+}
+
+.route--list-duration {
+    color: #A8A8A8;
+    font-size: 20px;
+}
+
+.route--list-start-end {
+    text-align: right;
+    color: #696969;
+}
+
+.route--list-icon {
+    height: 128px;
+    width: 128px;
+    background-repeat: no-repeat;
+}
+
+.route--list-icon__taxi {
+    
+}
+
+.route--list-icon__public_transportation {
+    background-image: url('../css/public_transportation.png');
+}
+
+.route--list-icon__car_sharing {
+    
+}
+
+.route--list-icon__private_bike {
+    
+}
+
+.route--list-icon__bike_sharing {
+    
+}
