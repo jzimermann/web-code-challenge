@@ -13,13 +13,12 @@ html, body {
 }
 
 a {
-  color: brand-color(b1);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a[disabled='disabled'] {
   pointer-events: none;
-  cursor: default;
 }
 
 button,
