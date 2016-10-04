@@ -4,14 +4,14 @@
     <div ng-repeat="route in routes track by $index">
         <div class="route-list__card">
             <div class="row">
-                <div class="col-sm-9 route-list__card-type">{{ route.type | TravelTypeFilter}}</div>
+                <div class="col-sm-9 route-list__card--type">{{ route.type | TravelTypeFilter}}</div>
                 <div class="col-sm-3 route-list__card--start-end">{{ route | TravelStartFilter | date:'HH:mm' }} - {{route | TravelEndFilter | date:'HH:mm' }}</div>
             </div>
             <div class="row">
-                <div class="col-sm-12 route-list__card-duration">{{route | TravelDurationFilter }}</div>
+                <div class="col-sm-12 route-list__card--duration">{{route | TravelDurationFilter }}</div>
             </div>
-            <div class="row middle-xs">
-                <div class="col-sm-9 route-list__card--icon route-list__card--icon-public-transportation"></div>
+            <div class="row bottom-xs">
+                <div class="col-sm-9 route-list__card--icon route-list__card--icon-{{ route.type }}"></div>
                 <div class="col-sm-3 route-list__card--more-information">More Information</div>
             </div>
         <div>
