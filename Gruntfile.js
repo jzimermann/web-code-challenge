@@ -201,7 +201,7 @@ module.exports = function (grunt) {
                     {
                         cwd: '<%= ally.app %>/css/icons',
                         dest: '<%= ally.dist %>/ally/app/css',
-                        src: '{,**/}*.png',
+                        src: '{,**/}*.*',
                         expand: true
                     }
                 ]
