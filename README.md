@@ -1,31 +1,24 @@
-## Code challenge
+## About the solution
+This is a simple [AngularJS](https://angularjs.org/) (version 1.2.16) solution tested in unit level (Jasmine + Karma) using TDD technique. The design was built using [SASS](http://sass-lang.com/) and [Flexbox](http://flexboxgrid.com/) - that provides a simple way to organise layouts. The dependency management is made by [NPM](https://www.npmjs.com/) and the the automation uses [GruntJS](http://gruntjs.com/).
 
+Last but not less important: the response with route's information is mocked and managed by HttpStubberService - a custom service that is built on top of [$httpBackend](https://docs.angularjs.org/api/ngMock/service/$httpBackend).
 
-### Problem description
+## How to build and run
 
-[ally](https://www.allyapp.com/) as a product wants to start having presence as a web application. The aim of this web app is to eventually have a similar feature set to the mobile apps.
+1. Install [NVM](https://github.com/creationix/nvm) to manage your Node version. This application was built using Node v0.10.40;
 
-The product team wants to have a first MVP, but our design team is too busy working on other features with higher priority for the next 2 weeks.
+2. Install grunt: 
+    npm install -g grunt-cli
 
+3. Clone the code from my repo (git clone https://github.com/jzimermann/web-code-challenge.git) or unzip the file with all the source code;
 
-### What we expect you to build
-
-You can find an example of a route search response from our API included in this repository.
-
-We would like you to build a UI that includes:
-
-1. A comprehensive overview of all the routes in a single page.
-
-2. Navigation to a detailed view of a single route, where more information is made available.
-
-#### Advice
-
-- You can take inspiration from our ally mobile apps in order to build the UI, but also feel free to impress us with your own ideas.
-
-- Build an extensible solution, such that you could potentially add more features on top of it.
-
-- Feel free to use modern tools and patterns to support your implementation.
-
-## Code submission
-
-Please send us a ZIP file with your solution privately, together with the instructions on how to get the project started locally.
+4. On the web-code-challenge folder, install all the dependencies by running:
+    npm install
+    
+5. Start the app by running:
+    grunt serve
+    
+6. If you make any change, you can also run the unit tests (to check the code coverage, you can navigate to build/test-results/coverage/PhantomJS\ 1.9.8\ \(Mac\ OS\ X\)/index.html):
+    grunt test 
+    
+7. Have fun! :)
