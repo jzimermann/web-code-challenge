@@ -1,5 +1,31 @@
-<section>
-    <div>
-        Type: {{ route.type }}
+<div class="title-bar row middle-xs center-xs">
+    <img src="../../../ally/app/css/intro-logo.svg" class="title-bar__logo">
+</div>
+
+<div class="route-list__card">
+    <div class="row">
+        <div class="col-sm-9 route-list__card--type">{{ route.type | TravelTypeFilter}}</div>
+        <div class="col-sm-3 route-list__card--start-end">{{ route | TravelStartFilter | date:'HH:mm' }} - {{route | TravelEndFilter | date:'HH:mm' }}</div>
     </div>
-</section>
+    <div class="row">
+        <div class="col-sm-12 route-list__card--duration">{{route | TravelDurationFilter }}</div>
+    </div>
+    <div class="row bottom-xs">
+        <div class="col-sm-9 route-list__card--icon route-list__card--icon-{{ route.type }}"></div>
+    </div>
+</div>
+
+<div class="route-list__details">
+    <div ng-repeat="segment in route.segments track by $index">
+        <div class="route-list__details--travel-mode">
+            {{ segment.travel_mode }}
+        </div>
+
+        <div ng-repeat="stop in segment.stops track by $index" class="row route-list__details--stop-detail">
+            <div class="col-sm-1">{{stop.datetime | date:'HH:mm'}}</div>
+            <div class="col-sm-11">{{stop.name || "Your current location"}}</div>
+        </div>
+
+        <br>
+    </div>
+</div>
