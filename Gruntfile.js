@@ -244,22 +244,6 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
-     grunt.registerTask('iso', [
-        'clean:dist',
-        'gulp:sass',
-        'copy:dist',
-        'connect:dist',
-        'shell:iso_tests'
-    ]);
-
-    grunt.registerTask('iso-dev', [
-        'clean:dist',
-        'gulp:sass',
-        'copy:dist',
-        'connect:dist',
-        'shell:iso_tests'
-    ]);
-
     grunt.registerTask('test', [ 'lint', 'karma:unit' ]);
 
     grunt.registerTask('lint', [ 'gulp:jshint']);
