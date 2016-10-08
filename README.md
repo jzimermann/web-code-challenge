@@ -1,3 +1,5 @@
+[![Status da construção](https://snap-ci.com/jzimermann/web-code-challenge/branch/master/build_image)](https://snap-ci.com/jzimermann/web-code-challenge/branch/master)
+
 ## About the solution
 This is a simple [AngularJS](https://angularjs.org/) (version 1.2.16) solution tested in unit level (Jasmine + Karma) using TDD technique. The design was built using [SASS](http://sass-lang.com/) and [Flexbox](http://flexboxgrid.com/) - that provides a simple way to organise layouts. The dependency management is made by [NPM](https://www.npmjs.com/) and the the automation uses [GruntJS](http://gruntjs.com/).
 
