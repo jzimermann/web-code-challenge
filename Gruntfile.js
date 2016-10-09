@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (grunt) {
-    
+module.exports = function(grunt) {
+
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
@@ -16,35 +16,37 @@ module.exports = function (grunt) {
     var jsinspect = require('gulp-jsinspect');
 
     grunt.initConfig({
-        
+
         ally: {
             app: 'app',
             dist: 'dist',
             temp: 'temp'
         },
         gulp: {
-            sass: function () {
+            sass: function() {
                 return gulp.src('app/css/app.scss')
                     .pipe(sass())
                     .pipe(gulp.dest('dist/ally/app/css/'));
             },
-            jshint: function () {
+            jshint: function() {
                 var lintableScripts = [
                     'app/js/**/*.js',
                     'test/**/*.js',
-                    '!app/js/lib/**/*.js'];
+                    '!app/js/lib/**/*.js'
+                ];
                 return gulp.src(lintableScripts)
                     .pipe(jshint())
                     .pipe(jshint.reporter(stylish))
                     .pipe(jshint.reporter('fail'));
             },
-            eslint: function(){
+            eslint: function() {
                 var eslintableScripts = [
                     'app/app.js',
                     'app/main.js',
                     'app/routes.js',
                     'app/js/**/*.js',
-                    'test/**/*.js'];
+                    'test/**/*.js'
+                ];
 
                 return gulp.src(eslintableScripts)
                     .pipe(eslint())
@@ -52,20 +54,21 @@ module.exports = function (grunt) {
                     .pipe(eslint.failAfterError());
                 return failure;
             },
-            jsinspect: function(){
+            jsinspect: function() {
                 var jsinspectable = [
                     'app/app.js',
                     'app/main.js',
                     'app/routes.js',
                     'app/js/**/*.js',
                     '!test/**/*.js',
-                    '!app/js/main-mock.js'];
+                    '!app/js/main-mock.js'
+                ];
 
                 return gulp.src(jsinspectable)
                     .pipe(jsinspect({
-                        'threshold':   10,
+                        'threshold': 10,
                         'identifiers': true,
-                        'suppress':    0
+                        'suppress': 0
                     }));
             }
         },
@@ -130,81 +133,68 @@ module.exports = function (grunt) {
         },
         clean: {
             dist: {
-                files: [
-                    {
-                        dot: true,
-                        src: [
-                            '<%= ally.dist %>/*',
-                            '!<%= ally.dist %>/.git*'
-                        ]
-                    }
-                ]
+                files: [{
+                    dot: true,
+                    src: [
+                        '<%= ally.dist %>/*',
+                        '!<%= ally.dist %>/.git*'
+                    ]
+                }]
             }
         },
         copy: {
             dist: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= ally.app %>',
-                        dest: '<%= ally.dist %>/ally/app',
-                        src: [ 'js/**/partials/{,*/}*.html']
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/angular',
-                        dest: '<%= ally.dist %>/ally/app/js/lib/angular',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/angular-mocks',
-                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-mocks',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/angular-resource',
-                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-resource',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/angular-route',
-                        dest: '<%= ally.dist %>/ally/app/js/lib/angular-route',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/requirejs',
-                        dest: '<%= ally.dist %>/ally/app/js/lib/requirejs',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'node_modules/flexboxgrid',
-                        dest: '<%= ally.dist %>/ally/app/css/flexboxgrid',
-                        src: '{,**/}*.*'
-                    },
-                    {
-                        cwd: 'WebContent',
-                        src: ["*.html", "*.js"],
-                        dest: '<%= ally.dist %>/ally',
-                        expand: true
-                    },
-                    {
-                        cwd: '<%= ally.app %>/js',
-                        dest: '<%= ally.dist %>/ally/app/js',
-                        src: '{,**/}*.js',
-                        expand: true
-                    },
-                    {
-                        cwd: '<%= ally.app %>/css/icons',
-                        dest: '<%= ally.dist %>/ally/app/css',
-                        src: '{,**/}*.*',
-                        expand: true
-                    }
-                ]
+                files: [{
+                    expand: true,
+                    cwd: '<%= ally.app %>',
+                    dest: '<%= ally.dist %>/ally/app',
+                    src: ['js/**/partials/{,*/}*.html']
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/angular',
+                    dest: '<%= ally.dist %>/ally/app/js/lib/angular',
+                    src: '{,**/}*.*'
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/angular-mocks',
+                    dest: '<%= ally.dist %>/ally/app/js/lib/angular-mocks',
+                    src: '{,**/}*.*'
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/angular-resource',
+                    dest: '<%= ally.dist %>/ally/app/js/lib/angular-resource',
+                    src: '{,**/}*.*'
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/angular-route',
+                    dest: '<%= ally.dist %>/ally/app/js/lib/angular-route',
+                    src: '{,**/}*.*'
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/requirejs',
+                    dest: '<%= ally.dist %>/ally/app/js/lib/requirejs',
+                    src: '{,**/}*.*'
+                }, {
+                    expand: true,
+                    cwd: 'node_modules/flexboxgrid',
+                    dest: '<%= ally.dist %>/ally/app/css/flexboxgrid',
+                    src: '{,**/}*.*'
+                }, {
+                    cwd: 'app',
+                    src: 'index.html',
+                    dest: '<%= ally.dist %>/ally',
+                    expand: true
+                }, {
+                    cwd: '<%= ally.app %>/js',
+                    dest: '<%= ally.dist %>/ally/app/js',
+                    src: '{,**/}*.js',
+                    expand: true
+                }, {
+                    cwd: '<%= ally.app %>/css/icons',
+                    dest: '<%= ally.dist %>/ally/app/css',
+                    src: '{,**/}*.*',
+                    expand: true
+                }]
             }
         },
         karma: {
@@ -227,7 +217,7 @@ module.exports = function (grunt) {
         'watch'
     ]);
 
-    grunt.registerTask('test', [ 'lint', 'karma:unit' ]);
+    grunt.registerTask('test', ['lint', 'karma:unit']);
 
-    grunt.registerTask('lint', [ 'gulp:jshint']);
+    grunt.registerTask('lint', ['gulp:jshint']);
 };
