@@ -216,23 +216,6 @@ module.exports = function (grunt) {
                 configFile: 'config/karma.conf.js',
                 singleRun: true
             }
-        },
-        shell: {
-            options: {
-                cuke: 'bundle exec cucumber',
-                flags: '--color --format html --out ../build/iso-reports/index.html --format pretty features/isolation',
-                env: '<%= grunt.option("firefox") ? "BROWSER=firefox" : "BROWSER=headless" %>',
-                make_dir: 'mkdir -p ../build/iso-reports;'
-            },
-            iso_tests: {
-                options: {
-                    execOptions: {
-                        maxBuffer: Infinity,
-                        cwd: '../'
-                    }
-                },
-                command: '<%= shell.options.make_dir %> <%= shell.options.cuke %> <%= shell.options.env %> <%= shell.options.flags %>'
-            }
         }
     });
 
