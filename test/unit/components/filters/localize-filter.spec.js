@@ -1,5 +1,7 @@
 define(['components/filters/localize-filter'], function(LocalizeFilter) {
 
+    'use strict';
+
     describe('LocalizeFilter', function() {
 
         var filter;
@@ -19,7 +21,7 @@ define(['components/filters/localize-filter'], function(LocalizeFilter) {
 
         describe('when a key does not exist', function() {
 
-            iit('should not translate the message', function() {
+            it('should not translate the message', function() {
 
                 expect(filter('MadeUpKey')).toBe('???MadeUpKey???');
             });
